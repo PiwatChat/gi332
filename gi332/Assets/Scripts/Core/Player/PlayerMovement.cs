@@ -18,6 +18,7 @@ public class PlayerMovement : NetworkBehaviour
     
     private Vector2 perviousMovementInput;
     private bool isFacingRight = true;
+    public bool IsFacingRight { get { return isFacingRight; } }
     private bool isGrounded;
     private bool isSprinting;
 
@@ -129,7 +130,23 @@ public class PlayerMovement : NetworkBehaviour
     
     private void CheckGrounded()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        Collider2D[] hitColliders = new Collider2D[3];
+        int numColliders = Physics2D.OverlapCircleNonAlloc(
+            groundCheck.position, 
+            groundCheckRadius, 
+            hitColliders, 
+            groundLayer
+        );
+
+        isGrounded = false;
+        for (int i = 0; i < numColliders; i++)
+        {
+            if (hitColliders[i].gameObject != gameObject)
+            {
+                isGrounded = true;
+                break;
+            }
+        }
     }
 
     private void HandleMove(Vector2 movementInput)
