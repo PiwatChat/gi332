@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 85fa755dcb9f67c45ac3c1772b08fd1c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 228548
+  packageName: Multi Target Camera Movement
+  packageVersion: 1.0.0
+  assetPath: Assets/Luca Iosi/Multi Target Camera Movement/Scripts/CameraMovement.cs
+  uploadId: 515606

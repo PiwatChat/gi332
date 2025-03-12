@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 79d88694413d36242b8883e1af81dbf0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 228548
+  packageName: Multi Target Camera Movement
+  packageVersion: 1.0.0
+  assetPath: Assets/Luca Iosi/Multi Target Camera Movement/Example/CheckerMaterial.mat
+  uploadId: 515606
