@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Bootstrap.unity
+    guid: 2806690abac82a645a0ac0d6c6f0ee9e
   - enabled: 1
-    path: Assets/Scenes/test Nicely.unity
-    guid: 51fb598afbb3b9c4d81afd081e013310
+    path: Assets/Scenes/NetBootstrap.unity
+    guid: 4d16fa7742cc69a4ba9d0d205d453dc7
   - enabled: 1
-    path: Assets/Scenes/Earth.unity
-    guid: 79967c3c71373144eb84dd4b10584590
+    path: Assets/Scenes/Menu.unity
+    guid: 520baa466a143af478a20707f7387aa3
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 5ea5e26557ac88344bf4f651e92b8699
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

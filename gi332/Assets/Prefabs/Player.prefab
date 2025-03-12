@@ -252,8 +252,6 @@ GameObject:
   - component: {fileID: 6560295997820966037}
   - component: {fileID: 5084725573364387596}
   - component: {fileID: -7501725343499133106}
-  - component: {fileID: 3254353052600848404}
-  - component: {fileID: -6032080661549884003}
   - component: {fileID: -1704087304674711290}
   - component: {fileID: 3422709485650435674}
   m_Layer: 3
@@ -451,42 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532230bfc9aea334fb736646b2532627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3254353052600848404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6978383651178477854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b34911c4a77637479fd09dfa0135eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  inventoryUI: {fileID: 0}
-  inventoryData: {fileID: 11400000, guid: 97a240225a84d7c4b9fbb82f25fd62e5, type: 2}
-  initialItems: []
-  dropSound: {fileID: 0}
-  openSound: {fileID: 0}
-  audioSource: {fileID: 0}
---- !u!114 &-6032080661549884003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6978383651178477854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85e5b3d988087c242aba9f57f43c1e90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  inputReader: {fileID: 11400000, guid: 52461b5142845bc4997a3db81443d46f, type: 2}
-  inventor: {fileID: 11400000, guid: 97a240225a84d7c4b9fbb82f25fd62e5, type: 2}
-  source: {fileID: 0}
-  itemPickup: {fileID: 0}
 --- !u!114 &-1704087304674711290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,8 +479,9 @@ MonoBehaviour:
   pickupRadius: 1.5
   throwForce: 20
   carryOffset: {fileID: 4314672049599398092}
-  flipPlayer: 0
   airForce: 1.25
+  flipPlayer:
+    m_InternalValue: 1
   isCarrying:
     m_InternalValue: 0
   isCarried:

@@ -1,44 +1,74 @@
 using System;
 using UnityEngine;
 using TMPro;
+using Unity.Netcode;
 
-public class LimitLifeManager : MonoBehaviour
+public class LimitLifeManager : NetworkBehaviour
 {
-    [SerializeField]
-    private float maxLife;
-    [SerializeField]
-    private float currentLife;
-    [SerializeField]
-    private TMP_Text lifeText;
-    
-    private bool isDead;
-    public Action<LimitLifeManager> OnDie;
+    public static LimitLifeManager Instance { get; private set; }
 
-    void Start()
+    [SerializeField] private float maxLife = 3;
+    private NetworkVariable<float> currentLife = new NetworkVariable<float>();
+
+    [SerializeField] private TMP_Text lifeText;
+
+    public event Action OnDie;
+
+    private void Awake()
     {
-        currentLife = maxLife;
-        UpdateText();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-    
+
+    public override void OnNetworkSpawn()
+    {
+        if (IsServer)
+        {
+            currentLife.Value = maxLife;
+        }
+        currentLife.OnValueChanged += OnLifeChanged;
+        UpdateText(currentLife.Value);
+    }
+
     public void TakeDamage()
     {
-        if (isDead)
+        if (IsServer)
         {
-            return;
+            currentLife.Value = Mathf.Max(0, currentLife.Value - 1);
+            if (currentLife.Value <= 0)
+            {
+                OnDie?.Invoke();
+                Debug.Log("Team Life Depleted!");
+            }
         }
-        
-        currentLife = Mathf.Max(0, currentLife - 1);
-        UpdateText();
-        if (currentLife <= 0)
+        else
         {
-            isDead = true;
-            OnDie?.Invoke(this);
-            Time.timeScale = 0;
+            TakeDamageServerRpc();
         }
     }
-    
-    private void UpdateText()
+
+    [ServerRpc]
+    private void TakeDamageServerRpc()
     {
-        lifeText.text = maxLife.ToString() + "/" + currentLife.ToString();
+        TakeDamage();
+    }
+
+    private void OnLifeChanged(float oldValue, float newValue)
+    {
+        UpdateText(newValue);
+    }
+
+    private void UpdateText(float life)
+    {
+        if (lifeText != null)
+        {
+            lifeText.text = life.ToString() + "/" + maxLife.ToString();
+        }
     }
 }

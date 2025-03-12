@@ -1,18 +1,15 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class LifePlayer : MonoBehaviour
+public class LifePlayer : NetworkBehaviour
 {
-    private LimitLifeManager limitLifeManager;
-
-    void Awake()
-    {
-        limitLifeManager = FindObjectOfType<LimitLifeManager>();
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!IsOwner) return;
+
         if (collision.CompareTag("Obstacle"))
         {
-            limitLifeManager.TakeDamage();
+            LimitLifeManager.Instance?.TakeDamage();
         }
     }
 }

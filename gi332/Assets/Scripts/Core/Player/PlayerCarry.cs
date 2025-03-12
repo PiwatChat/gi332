@@ -114,7 +114,7 @@ public class PlayerCarry : NetworkBehaviour
         }
     }
     
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void UpdateFacingDirectionServerRpc()
     {
         UpdateFacingDirection();
