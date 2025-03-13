@@ -108,16 +108,24 @@ public class PlayerCarry : NetworkBehaviour
         {
             if (carrierObj.TryGetComponent<PlayerMovement>(out var carrierMovement))
             {
-                flipPlayer.Value = carrierMovement.IsFacingRight ? 1f : -1f;
-                //transform.localScale = new Vector3(flipPlayer.Value, 1f, 1f);
+                float newFlipValue = carrierMovement.IsFacingRight.Value ? 1f : -1f;
+                
+                if (IsServer)
+                {
+                    flipPlayer.Value = newFlipValue;
+                }
+                else
+                {
+                    UpdateFacingDirectionServerRpc(newFlipValue);
+                }
             }
         }
     }
-    
+
     [ServerRpc(RequireOwnership = false)]
-    private void UpdateFacingDirectionServerRpc()
+    private void UpdateFacingDirectionServerRpc(float newFlipValue)
     {
-        UpdateFacingDirection();
+        flipPlayer.Value = newFlipValue;
     }
 
 
@@ -143,14 +151,7 @@ public class PlayerCarry : NetworkBehaviour
     {
         if (isCarried.Value)
         {
-            if (IsServer)
-            {
-                UpdateFacingDirection();
-            }
-            else
-            {
-                UpdateFacingDirectionServerRpc();
-            }
+            UpdateFacingDirection();
         }
         
         if (isThrow.Value)

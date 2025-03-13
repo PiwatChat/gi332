@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -18,9 +19,10 @@ public class PlayerMovement : NetworkBehaviour
     
     private Vector2 perviousMovementInput;
     private bool isFacingRight = true;
-    public bool IsFacingRight { get { return isFacingRight; } }
+    public NetworkVariable<bool> IsFacingRight = new NetworkVariable<bool>(true);
     private bool isGrounded;
     private bool isSprinting;
+    private bool isMapSelectionScene;
 
     public override void OnNetworkSpawn()
     {
@@ -75,6 +77,22 @@ public class PlayerMovement : NetworkBehaviour
         {
             return;
         }
+        
+        isMapSelectionScene = SceneManager.GetActiveScene().name == "MapSelection";
+        if (isMapSelectionScene)
+        {
+            rb2D.gravityScale = 0;
+        }
+        else
+        {
+            rb2D.gravityScale = 4;
+        }
+        
+        if (isMapSelectionScene)
+        {
+            rb2D.linearVelocity = Vector2.zero;
+            return;
+        }
 
         if (rb2D.linearVelocity.y < 0)
         {
@@ -99,17 +117,24 @@ public class PlayerMovement : NetworkBehaviour
     
     void Flip()
     {
-        if (perviousMovementInput.x > 0 && !isFacingRight)
+        if (perviousMovementInput.x > 0 && !IsFacingRight.Value)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            isFacingRight = true;
+            FlipServerRpc(true);
         }
             
-        else if (perviousMovementInput.x < 0 && isFacingRight)
+        else if (perviousMovementInput.x < 0 && IsFacingRight.Value)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            isFacingRight = false;
+            FlipServerRpc(false);
         }
+    }
+    
+    [ServerRpc]
+    private void FlipServerRpc(bool facingRight)
+    {
+        IsFacingRight.Value = facingRight;
+        transform.localScale = new Vector3(facingRight ? 1 : -1, 1, 1);
     }
     
     private void JumpPlayer()

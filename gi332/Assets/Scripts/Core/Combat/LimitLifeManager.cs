@@ -53,7 +53,7 @@ public class LimitLifeManager : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void TakeDamageServerRpc()
     {
         TakeDamage();

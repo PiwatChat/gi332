@@ -1,0 +1,11 @@
+using Unity.Netcode;
+public class PlayerReady : NetworkBehaviour
+{
+    public NetworkVariable<bool> IsReady = new NetworkVariable<bool>();
+
+    [ServerRpc]
+    public void SetReadyServerRpc(bool ready)
+    {
+        IsReady.Value = ready;
+    }
+}
