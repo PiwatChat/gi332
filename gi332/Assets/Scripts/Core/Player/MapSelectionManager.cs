@@ -58,6 +58,12 @@ public class MapSelectionManager : NetworkBehaviour
     {
         if (IsServer && CheckAllReady())
         {
+            foreach (var client in NetworkManager.Singleton.ConnectedClientsList)
+            {
+                var playerReady = client.PlayerObject.GetComponent<PlayerReady>();
+                playerReady.SetReadyServerRpc(false);
+            }
+
             NetworkManager.Singleton.SceneManager.LoadScene(SelectedMap.Value.ToString(), LoadSceneMode.Single);
         }
     }

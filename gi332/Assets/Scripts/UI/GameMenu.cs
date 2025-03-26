@@ -42,9 +42,7 @@ public class GameMenu : NetworkBehaviour
     }
     public void LeaveServer()
     {
-        networkManager.Shutdown();
-        VivoxService.Instance.LogoutAsync();
-        SceneManager.LoadScene("Menu");
+        NetworkManager.Singleton.SceneManager.LoadScene("MapSelection", LoadSceneMode.Single);
     }
     
     private void HandleOpen(bool v)

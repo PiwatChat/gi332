@@ -81,6 +81,7 @@ public class PlayerMovement : NetworkBehaviour
         isMapSelectionScene = SceneManager.GetActiveScene().name == "MapSelection";
         if (isMapSelectionScene)
         {
+            transform.position = Vector3.zero;
             rb2D.gravityScale = 0;
         }
         else

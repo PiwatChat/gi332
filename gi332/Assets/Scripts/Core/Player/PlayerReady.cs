@@ -3,7 +3,7 @@ public class PlayerReady : NetworkBehaviour
 {
     public NetworkVariable<bool> IsReady = new NetworkVariable<bool>();
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void SetReadyServerRpc(bool ready)
     {
         IsReady.Value = ready;
