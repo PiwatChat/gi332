@@ -11,7 +11,8 @@ public class LimitLifeManager : NetworkBehaviour
     private NetworkVariable<float> currentLife = new NetworkVariable<float>();
 
     [SerializeField] private TMP_Text lifeText;
-
+    
+    private NetworkVariable<Vector3> savePoint = new NetworkVariable<Vector3>();
     public event Action OnDie;
 
     private void Awake()
@@ -31,6 +32,7 @@ public class LimitLifeManager : NetworkBehaviour
         if (IsServer)
         {
             currentLife.Value = maxLife;
+            savePoint.Value = Vector3.zero;
         }
         currentLife.OnValueChanged += OnLifeChanged;
         UpdateText(currentLife.Value);
@@ -46,6 +48,7 @@ public class LimitLifeManager : NetworkBehaviour
                 OnDie?.Invoke();
                 Debug.Log("Team Life Depleted!");
             }
+            RespawnAllPlayers();
         }
         else
         {
@@ -69,6 +72,46 @@ public class LimitLifeManager : NetworkBehaviour
         if (lifeText != null)
         {
             lifeText.text = life.ToString() + "/" + maxLife.ToString();
+        }
+    }
+    
+    public void SetSavePoint(Vector3 newSavePoint)
+    {
+        if (IsServer)
+        {
+            savePoint.Value = newSavePoint;
+            Debug.Log("Save Point Updated: " + newSavePoint);
+        }
+        else
+        {
+            SetSavePointServerRpc(newSavePoint);
+        }
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void SetSavePointServerRpc(Vector3 newSavePoint)
+    {
+        savePoint.Value = newSavePoint;
+    }
+    
+    private void RespawnAllPlayers()
+    {
+        foreach (var player in NetworkManager.Singleton.ConnectedClientsList)
+        {
+            if (player.PlayerObject != null)
+            {
+                player.PlayerObject.transform.position = savePoint.Value;
+            }
+        }
+        RespawnAllPlayersClientRpc(savePoint.Value);
+    }
+    
+    [ClientRpc]
+    private void RespawnAllPlayersClientRpc(Vector3 respawnPosition)
+    {
+        if (NetworkManager.Singleton.LocalClient != null && NetworkManager.Singleton.LocalClient.PlayerObject != null)
+        {
+            NetworkManager.Singleton.LocalClient.PlayerObject.transform.position = respawnPosition;
         }
     }
 }
