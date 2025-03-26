@@ -8,6 +8,7 @@ using Unity.Services.Authentication;
 using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
+using Unity.Services.Vivox;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -67,6 +68,17 @@ public class ClientGameManager : IDisposable
         NetworkManager.Singleton.NetworkConfig.ConnectionData = payloadBytes;
         
         NetworkManager.Singleton.StartClient();
+        
+        string channelName = $"Lobby_{joinCode}";
+        await JoinVivoxVoiceChat(channelName);
+    }
+    
+    private async Task JoinVivoxVoiceChat(string channelName)
+    {
+        if (VivoxService.Instance.IsLoggedIn) return;
+
+        await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.TextAndAudio);
+        Debug.Log("JoinVivoxVoiceChat : " + channelName);
     }
 
     public void Dispose()

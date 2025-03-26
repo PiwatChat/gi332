@@ -13,6 +13,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     public event Action<bool> SprintEvent;
     public event Action<bool> CrouchEvent;
     public event Action<bool> InteractEvent;
+    public event Action<bool> OpenMenu;
     
     private Controls controls;
 
@@ -102,6 +103,18 @@ public class InputReader : ScriptableObject, IPlayerActions
         else if (context.canceled)
         {
             SprintEvent?.Invoke(false);
+        }
+    }
+
+    public void OnOpenMenu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            OpenMenu?.Invoke(true);
+        }
+        else if (context.canceled)
+        {
+            OpenMenu?.Invoke(false);
         }
     }
 }

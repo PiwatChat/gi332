@@ -11,6 +11,7 @@ using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
+using Unity.Services.Vivox;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +26,8 @@ public class HostGameManager : IDisposable
     private const int MaxConnections = 20;
     private const string GameSceneName = "Game";
     private const string JoinCodeKey = "JoinCode";
+    public NetworkServer NetworkServer { get; private set; }
+
     public async Task StartHostAsync()
     {
         try
@@ -96,6 +99,17 @@ public class HostGameManager : IDisposable
 
         //NetworkManager.Singleton.SceneManager.LoadScene(GameSceneName, LoadSceneMode.Single);
         NetworkManager.Singleton.SceneManager.LoadScene("MapSelection", LoadSceneMode.Single);
+        
+        string channelName = $"Lobby_{joinCode}";
+        await JoinVivoxVoiceChat(channelName);
+    }
+    
+    private async Task JoinVivoxVoiceChat(string channelName)
+    {
+        if (VivoxService.Instance.IsLoggedIn) return;
+        
+        await VivoxService.Instance.JoinGroupChannelAsync(channelName, ChatCapability.TextAndAudio);
+        Debug.Log("JoinVivoxVoiceChat : " + channelName);
     }
 
     private IEnumerator HeartbeatLobby(float waitTimeSeconds)
