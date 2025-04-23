@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using Unity.Netcode;
 using UnityEngine;
+using System;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -23,6 +24,8 @@ public class PlayerMovement : NetworkBehaviour
     private bool isGrounded;
     private bool isSprinting;
     private bool isMapSelectionScene;
+
+    [SerializeField] private Animator anim;
 
     public override void OnNetworkSpawn()
     {
@@ -70,6 +73,11 @@ public class PlayerMovement : NetworkBehaviour
         }
     }
 
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     
     private void FixedUpdate()
     {
@@ -99,6 +107,10 @@ public class PlayerMovement : NetworkBehaviour
         {
             rb2D.linearVelocity += Physics2D.gravity.y * fallMultiplier * Vector2.up * Time.deltaTime;
         }
+
+        anim.SetFloat("X", Math.Abs(rb2D.linearVelocity.x));
+        anim.SetFloat("Y", rb2D.linearVelocity.y);
+
         CheckGrounded();
         MovePlayer();
         Flip();
@@ -143,6 +155,7 @@ public class PlayerMovement : NetworkBehaviour
         if (isGrounded)
         {
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, jumpForce);
+            anim.SetBool("IsJumping", true);
         }
     }
 
@@ -151,6 +164,7 @@ public class PlayerMovement : NetworkBehaviour
         if (rb2D.linearVelocity.y > 0)
         {
             rb2D.linearVelocity = new Vector2(rb2D.linearVelocity.x, rb2D.linearVelocity.y * 0.5f);
+            anim.SetBool("IsJumping", false);
         }
     }
     
@@ -165,6 +179,7 @@ public class PlayerMovement : NetworkBehaviour
         );
 
         isGrounded = false;
+
         for (int i = 0; i < numColliders; i++)
         {
             if (hitColliders[i].gameObject != gameObject)
