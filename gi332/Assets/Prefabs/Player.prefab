@@ -7790,6 +7790,7 @@ GameObject:
   - component: {fileID: 2587754085947451400}
   - component: {fileID: 6074923428232325801}
   - component: {fileID: 5666560786754252671}
+  - component: {fileID: -6495703030422072063}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -8021,6 +8022,7 @@ MonoBehaviour:
   throwForce: 20
   carryOffset: {fileID: 4314672049599398092}
   airForce: 1.25
+  anim: {fileID: 0}
   flipPlayer:
     m_InternalValue: 1
   isCarrying:
@@ -8165,6 +8167,19 @@ MonoBehaviour:
   UseRigidBodyForMotion: 0
   AutoUpdateKinematicState: 1
   AutoSetKinematicOnDespawn: 1
+--- !u!114 &-6495703030422072063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978383651178477854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b810128bc9f6b4c9d9953d805fa6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
 --- !u!1 &6998171449046189035
 GameObject:
   m_ObjectHideFlags: 0

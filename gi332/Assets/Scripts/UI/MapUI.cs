@@ -19,6 +19,7 @@ public class MapUI : NetworkBehaviour
     public void OnHostSelectMap(string mapName)
     {
         _mapManager.HostSelectMap(mapName);
+        GameSession.Instance.currentMapId = mapName;
     }
 
     public void OnPlayerReady()

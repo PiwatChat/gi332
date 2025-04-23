@@ -24,6 +24,8 @@ public class PlayerMovement : NetworkBehaviour
     private bool isGrounded;
     private bool isSprinting;
     private bool isMapSelectionScene;
+    private bool isNotMove = false;
+    public bool IsNotMove { get { return isNotMove; } set { isNotMove = value; } }
 
     [SerializeField] private Animator anim;
 
@@ -51,6 +53,8 @@ public class PlayerMovement : NetworkBehaviour
     
     private void HandleJump(bool isPressed)
     {
+        if (isNotMove) return;
+        
         if (isPressed)
         {
             JumpPlayer();
@@ -63,6 +67,8 @@ public class PlayerMovement : NetworkBehaviour
 
     private void HandleSprint(bool isPressed)
     {
+        if (isNotMove) return;
+        
         if (isPressed)
         {
             isSprinting = true;
@@ -81,6 +87,13 @@ public class PlayerMovement : NetworkBehaviour
     
     private void FixedUpdate()
     {
+        if (isNotMove)
+        {
+            rb2D.linearVelocity = Vector2.zero;
+            rb2D.gravityScale = 0;
+            return;
+        }
+        
         if (!IsOwner)
         {
             return;
@@ -89,6 +102,7 @@ public class PlayerMovement : NetworkBehaviour
         isMapSelectionScene = SceneManager.GetActiveScene().name == "MapSelection";
         if (isMapSelectionScene)
         {
+            rb2D.linearVelocity = Vector2.zero;
             transform.position = Vector3.zero;
             rb2D.gravityScale = 0;
         }
