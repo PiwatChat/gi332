@@ -1,28 +1,31 @@
 fileFormatVersion: 2
-guid: baa25303ed5e9764da58d8272cbafe30
+guid: 5b8b0e3f3e9a6a245b98527e3da0d6a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3487320187181915260
-    second: Kusogaki02_Jump_0
+      213: -9187839099070242745
+    second: DreamKid_Idle_0
   - first:
-      213: -5354919971905492179
-    second: Kusogaki02_Jump_1
+      213: -8228348178538429316
+    second: DreamKid_Idle_1
   - first:
-      213: -4999043037027689104
-    second: Kusogaki02_Jump_2
+      213: 7191381010365413862
+    second: DreamKid_Idle_2
   - first:
-      213: 3873183514413558939
-    second: Kusogaki02_Jump_3
+      213: 7841777073193646892
+    second: DreamKid_Idle_3
   - first:
-      213: 6785122900980953655
-    second: Kusogaki02_Jump_4
+      213: 3492543142099992479
+    second: DreamKid_Idle_4
   - first:
-      213: 4937304374499196965
-    second: Kusogaki02_Jump_5
+      213: 7151348665640456369
+    second: DreamKid_Idle_5
   - first:
-      213: 1674820004815920181
-    second: Kusogaki02_Jump_6
+      213: -5384618288946640485
+    second: DreamKid_Idle_6
+  - first:
+      213: 2746080846004262970
+    second: DreamKid_Idle_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -144,155 +147,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kusogaki02_Jump_0
+      name: DreamKid_Idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 48329f034cc8a9fc0800000000000000
-      internalID: -3487320187181915260
+      spriteID: baf780058b142fb4086e5f5a561b6be5
+      internalID: 1404476234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Jump_1
+      name: DreamKid_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db22aecd4bb369408209b3d4bbd1a24
+      internalID: -1994451228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DreamKid_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61073ce659930241872aebde7ad54bb
+      internalID: 918759274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DreamKid_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70ee8892b0a311643bd1e3d189d9cd7c
+      internalID: 833304287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DreamKid_Idle_4
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d2bade938a08fa5b0800000000000000
-      internalID: -5354919971905492179
+      spriteID: bd7067be667d8e546bdd79d58839f30e
+      internalID: 1142916735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Jump_2
+      name: DreamKid_Idle_5
       rect:
         serializedVersion: 2
-        x: 256
+        x: 160
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 07d131908d4df9ab0800000000000000
-      internalID: -4999043037027689104
+      spriteID: 8637718e6ef8abf4a8be9714111cb99e
+      internalID: -1094703939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Jump_3
+      name: DreamKid_Idle_6
       rect:
         serializedVersion: 2
-        x: 384
+        x: 192
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b9ce486a2ef40c530800000000000000
-      internalID: 3873183514413558939
+      spriteID: 7f0fedb57099e3c458a9fac4b66dffb1
+      internalID: -1710342482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Jump_4
+      name: DreamKid_Idle_7
       rect:
         serializedVersion: 2
-        x: 512
+        x: 224
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 732765e4459992e50800000000000000
-      internalID: 6785122900980953655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kusogaki02_Jump_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 520c10e6b24d48440800000000000000
-      internalID: 4937304374499196965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kusogaki02_Jump_6
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 53c55c9bbe72e3710800000000000000
-      internalID: 1674820004815920181
+      spriteID: 0c4d84589f4999648a1f79cb6c7dbec2
+      internalID: 1853623855
       vertices: []
       indices: 
       edges: []
@@ -301,7 +326,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4422e795af9be1a459854b4e0bd19eeb
+    spriteID: 17f5ee69adc915f4296ed43df84083e5
     internalID: 0
     vertices: []
     indices: 
@@ -311,13 +336,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kusogaki02_Jump_0: -3487320187181915260
-      Kusogaki02_Jump_1: -5354919971905492179
-      Kusogaki02_Jump_2: -4999043037027689104
-      Kusogaki02_Jump_3: 3873183514413558939
-      Kusogaki02_Jump_4: 6785122900980953655
-      Kusogaki02_Jump_5: 4937304374499196965
-      Kusogaki02_Jump_6: 1674820004815920181
+      DreamKid_Idle_0: 1404476234
+      DreamKid_Idle_1: -1994451228
+      DreamKid_Idle_2: 918759274
+      DreamKid_Idle_3: 833304287
+      DreamKid_Idle_4: 1142916735
+      DreamKid_Idle_5: -1094703939
+      DreamKid_Idle_6: -1710342482
+      DreamKid_Idle_7: 1853623855
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

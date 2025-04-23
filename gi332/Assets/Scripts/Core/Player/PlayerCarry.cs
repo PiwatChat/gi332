@@ -9,6 +9,7 @@ public class PlayerCarry : NetworkBehaviour
     [SerializeField] private float throwForce = 5f;
     [SerializeField] private GameObject carryOffset;
     [SerializeField] private float airForce = 1.25f;
+    [SerializeField] private Animator anim;
     
     public NetworkVariable<NetworkObjectReference> carriedPlayer = new NetworkVariable<NetworkObjectReference>();
     public NetworkVariable<NetworkObjectReference> carriedBy = new NetworkVariable<NetworkObjectReference>();
@@ -22,6 +23,11 @@ public class PlayerCarry : NetworkBehaviour
     private void Awake()
     {
         movementScript = GetComponent<PlayerMovement>();
+    }
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
     }
 
     public override void OnNetworkSpawn()
@@ -66,6 +72,7 @@ public class PlayerCarry : NetworkBehaviour
                 carriedPlayer.Value = player.NetworkObject;
                 player.isCarried.Value = true;
                 player.carriedBy.Value = this.NetworkObject;
+                player.anim.SetBool("IsGrabing", true);
                 isCarrying.Value = true;
                 break;
             }
@@ -85,6 +92,7 @@ public class PlayerCarry : NetworkBehaviour
             {
                 player.carriedBy.Value = default;
                 StartCoroutine(IsThrow(player));
+                player.anim.SetBool("IsGrabing", false);
                 player.isCarried.Value = false;
             }
         }

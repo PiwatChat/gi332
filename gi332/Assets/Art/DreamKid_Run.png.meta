@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: c21a76a4a2e6e69478fc2237757dc828
+guid: 706b49c059f7ca64d952fbf581b9041b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2091630073724376998
-    second: Kusogaki02_Run_0
+      213: 5607885504478517301
+    second: DreamKid_Run_0
   - first:
-      213: -3734862577060758474
-    second: Kusogaki02_Run_1
+      213: 1617875440369312853
+    second: DreamKid_Run_1
   - first:
-      213: -2204735044238658126
-    second: Kusogaki02_Run_2
+      213: 348120353720960413
+    second: DreamKid_Run_2
   - first:
-      213: -1345723136218934656
-    second: Kusogaki02_Run_3
-  - first:
-      213: -9081853352106692320
-    second: Kusogaki02_Run_4
-  - first:
-      213: 3003407632338995059
-    second: Kusogaki02_Run_5
-  - first:
-      213: -976282408950738988
-    second: Kusogaki02_Run_6
-  - first:
-      213: -3936268807861082365
-    second: Kusogaki02_Run_7
+      213: -503257568622898038
+    second: DreamKid_Run_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kusogaki02_Run_0
+      name: DreamKid_Run_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a79dd95876f60d10800000000000000
-      internalID: 2091630073724376998
+      spriteID: 538118b872633dd40800000000000000
+      internalID: 5607885504478517301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Run_1
+      name: DreamKid_Run_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63cb469364a1b2cc0800000000000000
-      internalID: -3734862577060758474
+      spriteID: 554aa022429d37610800000000000000
+      internalID: 1617875440369312853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Run_2
+      name: DreamKid_Run_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 64
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b5bc4098253761e0800000000000000
-      internalID: -2204735044238658126
+      spriteID: d950f960e95c4d400800000000000000
+      internalID: 348120353720960413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Kusogaki02_Run_3
+      name: DreamKid_Run_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 96
         y: 0
-        width: 128
-        height: 128
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,96 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08255a300f7035de0800000000000000
-      internalID: -1345723136218934656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kusogaki02_Run_4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0217d757e76c6f180800000000000000
-      internalID: -9081853352106692320
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kusogaki02_Run_5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3774341345f3ea920800000000000000
-      internalID: 3003407632338995059
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kusogaki02_Run_6
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4df4706525c8372f0800000000000000
-      internalID: -976282408950738988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kusogaki02_Run_7
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3076dfedf509f59c0800000000000000
-      internalID: -3936268807861082365
+      spriteID: a8494bf58e11409f0800000000000000
+      internalID: -503257568622898038
       vertices: []
       indices: 
       edges: []
@@ -326,7 +226,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4ccb480cd0b780c4fb893de8107257ff
+    spriteID: 38ac5e756a768114c93d7ffb9b3a151a
     internalID: 0
     vertices: []
     indices: 
@@ -336,14 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kusogaki02_Run_0: 2091630073724376998
-      Kusogaki02_Run_1: -3734862577060758474
-      Kusogaki02_Run_2: -2204735044238658126
-      Kusogaki02_Run_3: -1345723136218934656
-      Kusogaki02_Run_4: -9081853352106692320
-      Kusogaki02_Run_5: 3003407632338995059
-      Kusogaki02_Run_6: -976282408950738988
-      Kusogaki02_Run_7: -3936268807861082365
+      DreamKid_Run_0: 5607885504478517301
+      DreamKid_Run_1: 1617875440369312853
+      DreamKid_Run_2: 348120353720960413
+      DreamKid_Run_3: -503257568622898038
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
