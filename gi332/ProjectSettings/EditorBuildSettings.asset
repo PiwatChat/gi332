@@ -18,17 +18,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MapSelection.unity
     guid: 72597aa40b2d4c247a1247cc38622e81
   - enabled: 1
+    path: Assets/Scenes/Map1.unity
+    guid: b99c272b0a9345a4aa981fff9ccc5679
+  - enabled: 1
+    path: Assets/Scenes/Map2.unity
+    guid: 79967c3c71373144eb84dd4b10584590
+  - enabled: 1
     path: Assets/Scenes/Game1.unity
     guid: 5ea5e26557ac88344bf4f651e92b8699
-  - enabled: 1
-    path: Assets/Scenes/Game2.unity
-    guid: b99c272b0a9345a4aa981fff9ccc5679
   - enabled: 0
     path: Assets/Scenes/Game2 (Not Use).unity
     guid: 91a690a8b77c541499ab518b53ffbfa7
-  - enabled: 1
-    path: Assets/Scenes/Earth.unity
-    guid: 79967c3c71373144eb84dd4b10584590
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

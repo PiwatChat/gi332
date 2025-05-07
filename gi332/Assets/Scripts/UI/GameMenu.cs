@@ -13,6 +13,8 @@ public class GameMenu : NetworkBehaviour
     private PlayerMovement playerController;
     [SerializeField] 
     private InputReader inputReader;
+    [SerializeField]
+    private GameObject leaveMapButton;
 
     private bool isOpen = false;
     private bool delayOpen = false;
@@ -23,6 +25,8 @@ public class GameMenu : NetworkBehaviour
     private void Start()
     {
         networkManager = NetworkManager.Singleton;
+        
+        leaveMapButton.SetActive(IsHost);
     }
 
     void OnEnable()

@@ -15789,6 +15789,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2521082153099089809, guid: 4260ca717101de8479afba3027f2b507, type: 3}
+      propertyPath: victoryUI
+      value: 
+      objectReference: {fileID: 352383138}
+    - target: {fileID: 2521082153099089809, guid: 4260ca717101de8479afba3027f2b507, type: 3}
+      propertyPath: victoryText
+      value: 
+      objectReference: {fileID: 213348745}
     - target: {fileID: 3318662252672452174, guid: 4260ca717101de8479afba3027f2b507, type: 3}
       propertyPath: m_Name
       value: Door

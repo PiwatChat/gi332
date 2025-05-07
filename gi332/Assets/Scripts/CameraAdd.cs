@@ -21,7 +21,7 @@ public class CameraAdd : MonoBehaviour
     private void Update()
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
-        if (currentSceneName.StartsWith("Game") && !isAdded)
+        if (currentSceneName.StartsWith("Map") && !isAdded)
         {
             StartCoroutine(DelayAdd());
         }

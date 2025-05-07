@@ -189,6 +189,7 @@ public class LimitLifeManager : NetworkBehaviour
         defeatUI.SetActive(false);
         currentLife.Value = maxLife;
         RespawnAllPlayers(Vector3.zero);
+        savePoint.Value = Vector3.zero;
         HideDefeatUIClientRpc();
         ResetAllSavePointsClientRpc();
         

@@ -2,6 +2,8 @@ using UnityEngine.SceneManagement;
 using Unity.Netcode;
 using UnityEngine;
 using System;
+using System.Linq;
+using Unity.Services.Vivox;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -62,6 +64,25 @@ public class PlayerMovement : NetworkBehaviour
         else
         {
             CutJumpShort();
+        }
+    }
+
+    private void Update()
+    {
+        if (!IsOwner) return;
+        
+        if (SetPushToTalk.isPushToTalk)
+        {
+            var channel = VivoxService.Instance.ActiveChannels.FirstOrDefault().Value;
+            var localParticipant = channel?.FirstOrDefault(p => p.IsSelf);
+
+            if (localParticipant != null)
+            {
+                if (Input.GetKeyDown(KeyCode.T))
+                    localParticipant.UnmutePlayerLocally();
+                if (Input.GetKeyUp(KeyCode.T))
+                    localParticipant.MutePlayerLocally();
+            }
         }
     }
 

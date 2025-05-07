@@ -4,9 +4,18 @@ using Unity.Services.Vivox;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum MicMode
+{
+    Mute,
+    AlwaysOn,
+    PushToTalk
+}
 
 public class AudioDeviceSettings : MonoBehaviour
 {
+    public Dropdown MicModeDropdown;
+    public MicMode currentMicMode = MicMode.AlwaysOn;
+    
     public Dropdown InputDeviceDropdown;
     public Dropdown OutputDeviceDropdown;
 
@@ -26,11 +35,19 @@ public class AudioDeviceSettings : MonoBehaviour
 
     private void Start()
     {
+        MicModeDropdown.ClearOptions();
+        MicModeDropdown.AddOptions(new System.Collections.Generic.List<string>
+        {
+            "Mute",
+            "Always On",
+            "Push To Talk"
+        });
+        
         VivoxService.Instance.AvailableInputDevicesChanged += RefreshInputDeviceList;
         VivoxService.Instance.AvailableOutputDevicesChanged += RefreshOutputDeviceList;
         VivoxService.Instance.EffectiveInputDeviceChanged += EffectiveInputDeviceChanged;
         VivoxService.Instance.EffectiveOutputDeviceChanged += EffectiveOutputDeviceChanged;
-
+        
 
         InputDeviceDropdown.onValueChanged.AddListener((i) =>
         {
@@ -53,6 +70,17 @@ public class AudioDeviceSettings : MonoBehaviour
         });
         OutputDeviceVolume.minValue = k_minSliderVolume;
         OutputDeviceVolume.maxValue = k_maxSliderVolume;
+        
+        MicModeDropdown.onValueChanged.AddListener((index) => 
+        {
+            var channel = VivoxService.Instance.ActiveChannels.FirstOrDefault().Value;
+            var localParticipant = channel?.FirstOrDefault(p => p.IsSelf);
+
+            if (localParticipant != null)
+            {
+                OnMicModeChanged(index, localParticipant);
+            }
+        });
         
         LoadSavedSettings();
         
@@ -92,6 +120,32 @@ public class AudioDeviceSettings : MonoBehaviour
             var localParticipant = channel.Value.FirstOrDefault(p => p.IsSelf);
             DeviceEnergyMask.fillAmount = Mathf.Lerp(DeviceEnergyMask.fillAmount, (float)localParticipant.AudioEnergy, Time.deltaTime * k_voiceMeterSpeed);
         }
+    }
+    
+    private void OnMicModeChanged(int modeIndex, VivoxParticipant participant)
+    {
+        currentMicMode = (MicMode)modeIndex;
+
+        switch (currentMicMode)
+        {
+            case MicMode.Mute:
+                participant.MutePlayerLocally();
+                SetPushToTalk.isPushToTalk = false;
+                break;
+
+            case MicMode.AlwaysOn:
+                participant.UnmutePlayerLocally();
+                SetPushToTalk.isPushToTalk = false;
+                break;
+
+            case MicMode.PushToTalk:
+                participant.MutePlayerLocally();
+                SetPushToTalk.isPushToTalk = true;
+                break;
+        }
+
+        PlayerPrefs.SetInt("MicMode", modeIndex);
+        PlayerPrefs.Save();
     }
 
     private void RefreshInputDeviceList()
@@ -173,6 +227,20 @@ public class AudioDeviceSettings : MonoBehaviour
             string inputDevice = PlayerPrefs.GetString("ActiveInputDevice");
             int index = InputDeviceDropdown.options.FindIndex(option => option.text == inputDevice);
             if (index >= 0) InputDeviceDropdown.value = index;
+        }
+        
+        if (PlayerPrefs.HasKey("MicMode"))
+        {
+            int micModeIndex = PlayerPrefs.GetInt("MicMode");
+            MicModeDropdown.SetValueWithoutNotify(micModeIndex);
+
+            var channel = VivoxService.Instance.ActiveChannels.FirstOrDefault().Value;
+            var localParticipant = channel?.FirstOrDefault(p => p.IsSelf);
+
+            if (localParticipant != null)
+            {
+                OnMicModeChanged(micModeIndex, localParticipant);
+            }
         }
 
         if (PlayerPrefs.HasKey("ActiveOutputDevice"))
